@@ -159,7 +159,16 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'taille' => 'required',
+            'phone' => 'required',
+            'mobile' => 'required',
+            'discount' => 'required',
+            'address' => 'required',
+            'zipcode' => 'required',
+            'city' => 'required',
 
+        ]);
 
         try {
             $account = Account::findOrfail($id);
